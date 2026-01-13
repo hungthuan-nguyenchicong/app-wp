@@ -8,6 +8,10 @@
 			"name": "APP",
 			"path": "."
 		},
+		{
+			"name": "--> WP SSR",
+			"path": "./wp-ssr"
+		},
 	],
 	"settings": {}
 }
