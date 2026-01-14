@@ -10,5 +10,6 @@ class WpServiceProvider extends ServiceProvider
     {
         $this->loadRoutesFrom(__DIR__.'/wp-routes.php');
         $this->loadViewsFrom(__DIR__.'/Posts/blade', 'wp-post');
+        $this->loadViewsFrom(__DIR__.'/Categories/blade', 'wp-category');
     }
 }

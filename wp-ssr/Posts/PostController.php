@@ -3,10 +3,11 @@
 namespace Wp\Posts;
 
 use App\Http\Controllers\Controller;
+use Illuminate\View\View;
 
 class PostController extends Controller
 {
-    public function index($slug, PostService $service)
+    public function index($slug, PostService $service): View
     {
         // Tìm post theo cột post_name (slug trong WP)
         // $result = $post->published()
