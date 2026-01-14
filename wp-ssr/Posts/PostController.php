@@ -6,13 +6,18 @@ use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function index($slug, Post $post)
+    public function index($slug, PostService $service)
     {
         // Tìm post theo cột post_name (slug trong WP)
-        $result = $post->published()
-            ->where('post_name', $slug)
-            ->firstOrFail();
+        // $result = $post->published()
+        //     ->where('post_name', $slug)
+        //     ->firstOrFail();
+        // $data = (object) \Wp\Posts\Resources\PostResource::make($result)->resolve();
+        // dd($data);
+        // $result = $service->index($slug);
+        // $data = \Wp\Posts\Resources\PostResource::make($result)->resolve();
+        $data = \Wp\Posts\Resources\PostResource::make($service->index($slug))->resolve();
 
-        return view('wp-post::post', ['p' => $result]);
+        return view('wp-post::post', ['p' => (object) $data]);
     }
 }
